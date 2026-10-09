@@ -4,16 +4,15 @@
         style="background-color: red; position: absolute; right: 70; bottom: 70; min-width: 100px; min-height: 100px"
     ></div>
     <script type="text/javascript">
-        let counter = 0;
+        let currentPos = 70;
+        const box = document.getElementById("my_box_realtime");
         const moveBox = setInterval(()=>{
-            counter++;
-            const box = document.getElementById("my_box_realtime");
-            // box.style.right += -2 + "px" ;
-            // box.style.bottom += -2 + "px";
-            moveBox.style.transform = `translate(2px, 2px)`;
-            if(counter===35){
-                clearInterval(moveBox);
-            };
+           currentPos--;
+           box.style.right = currentPos;
+           box.style.bottom = currentPos;
+           if(currentPos===0){
+               clearInterval(moveBox);
+           }
         },500);
     </script>
 </html>
